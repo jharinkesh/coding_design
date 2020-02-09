@@ -1,0 +1,53 @@
+
+public class Image {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int k=1;
+		byte data[][]= new byte[5][5];
+		int n = data.length;
+		for (int i=0;i<n;i++){
+			for(int j=0;j<n;j++){
+				data[i][j]= (byte) k++;
+			}
+			
+		}
+		printArray(data);
+		byte [][] rot = rotateBy90(data);
+
+		
+		System.out.println("THe rotated array");
+		printArray(rot);
+		
+
+	}
+	private static byte[][] rotateBy90(byte[][] data) {
+		int N = data.length;
+		byte [] rot= new byte[N*N];
+		int p=0 ,q=0;
+		for(int j=0;j<N;j++){
+			for(int i=N-1;i>=0;i--){
+				rot[p++]=data[i][j];
+			}
+		}
+		for(int i=0;i<N;i++){
+			for(int j=0;j<N;j++){
+				data[i][j]= rot[q++];
+			}
+		}
+		return data;
+	}
+
+	public static void printArray(byte data[][]){
+		int row = data[0].length;
+		for(int i=0;i<row;i++){
+			for(int j=0;j<row;j++){
+				System.out.print(data[i][j]+" ");
+			}
+			System.out.println();
+	}
+	}
+		
+
+}

@@ -10,10 +10,26 @@ public class BinaryTree {
         root.right = n2;
         n1.left = n3;
         n1.right = n4;
-        preOrder(root);
-
+        //preOrder(root);
+        //inOrder(root);
+        //postOrder(root);
     }
 
+    static void postOrder(Node root){
+        if(root!=null){
+            postOrder(root.left);
+            postOrder(root.right);
+            System.out.print(root.key+ " ");
+        }
+    }
+
+    static void inOrder(Node root){
+        if(root!=null){
+            inOrder(root.left);
+            System.out.print(root.key+ " ");
+            inOrder(root.right);
+        }
+    }
     static void preOrder(Node root){
         if(root!=null){
             System.out.print(root.key+" ");

@@ -1,0 +1,2 @@
+1. Write a program to search an element in the binary tree. The function should return true the data is found in the tree otherwise return false;(loops, recursion)
+2. Write a program to demonstrate level order traversal.

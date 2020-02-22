@@ -13,6 +13,20 @@ public class BinaryTree {
         //preOrder(root);
         //inOrder(root);
         //postOrder(root);
+        System.out.println(findMax(root));
+
+    }
+
+    static int findMax(Node root){
+        int max = 0;
+        if(root!=null){
+            max = root.key;
+            int lmax = findMax(root.left);
+            int rmax = findMax(root.right);
+            int m = lmax>rmax?lmax:rmax;
+            max = m>max?m:max;
+        }
+        return max;
     }
 
     static void postOrder(Node root){

@@ -1,0 +1,38 @@
+Basic Linked List interview questions
+
+Create a custom linked list.
+Insert a node at the end in linked list.
+Insert a node at first position in linked list.
+Insert a node at middle of linked list.
+Insert a node at specified position of linked list
+Delete a node at first position in linked list.
+Delete a node at middle of linked list.
+Delete a node at specified position of linked list
+Find a node at first position in linked list.
+Find a node at middle of linked list.
+Find a node at specified position of linked list
+
+
+Circular Linked list
+
+Count no of nodes in circular linked list.
+Print the content of circular linked list.
+Insert a node at the end of circular linked list.
+Insert a node in front of a circular linked list.
+Delete a last node in circular linked list.
+Delete a first node I circular linked list.
+
+
+Implementation based in linked list
+
+Implement stack using linked list.
+Find the nth node from the end of linked list.
+Check whether  linked list is null terminated or cyclic
+Intersection point of two singly linked list.
+Insert a node in sorted linked list.
+Reverse a linked list.
+Check whether the given linked list is even or odd.
+Given two linked list we need to merge them into third list in sorted order.
+Sort a linked list.
+Check whether a linked list is palindrome or not.
+ 		

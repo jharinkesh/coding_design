@@ -1,0 +1,223 @@
+public class SelectionSort {
+
+
+
+	public static void main(String[] args) {
+
+		int[] arr = {10,2,11,13,15,61,22,1};
+
+		getSelectionSort(arr);
+
+		for (int i = 0; i < arr.length; i++) {
+
+			System.out.print(arr[i]+" ");
+
+		}
+
+	}
+
+
+
+	private static void getSelectionSort(int[] arr) {
+
+		for (int i = 0; i < arr.length; i++) {
+
+			for (int j = i+1; j < arr.length; j++) {
+
+				if(arr[j] < arr[i]) {
+
+					int temp = arr[j];
+
+					arr[j] = arr[i];
+
+					arr[i] = temp;
+
+				}
+
+			}
+
+		}
+
+		
+
+	}
+
+}
+
+
+
+------------------------------------------------------------------
+
+
+
+	public static void main(String[] args) {
+
+		int[] arr = {10,2,11,13,15,61,22,1};
+
+		getBubbleSort(arr);
+
+		for (int i = 0; i < arr.length; i++) {
+
+			System.out.print(arr[i]+" ");
+
+		}
+
+	}
+
+
+
+	private static void getBubbleSort(int[] arr) {
+
+		for (int i = 0; i < arr.length; i++) {
+
+			for (int j = 0; j < arr.length - i - 1; j++) {
+
+				if(arr[j] > arr[j+1]) {
+
+					int temp = arr[j];
+
+					arr[j] = arr[j+1];
+
+					arr[j+1] = temp;
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+-----------------------------------------------------------------
+
+public class InsertionsSort {
+
+
+
+	public static void main(String[] args) {
+
+		int[] arr = {10,2,11,13,5,6,22,1};
+
+		doInsertionSort(arr);
+
+		for (int i = 0; i < arr.length; i++) {
+
+			System.out.print(arr[i]+" ");
+
+		}
+
+	}
+
+
+
+	private static void doInsertionSort(int[] arr) {
+
+		for (int i = 1; i < arr.length; i++) {
+
+			int temp = arr[i];
+
+			int j = i - 1;
+
+			while (j >= 0 && arr[j] < temp) {
+
+				arr[j+1] = arr[j];
+
+				j--;
+
+			}
+
+			arr[j+1] = temp;
+
+		}
+
+	}
+
+}
+
+---------------------------------------------------------------
+
+public class QuickSort {
+
+
+
+	public static void main(String[] args) {
+
+		int[] arr = { 10, 2, 11, 9, 4, 61, 22, 12 };
+
+		int lowerBound = 0;
+
+		int upperBound = arr.length;
+
+
+
+		doQuickSort(arr, lowerBound, upperBound - 1);
+
+		for (int i = 0; i < arr.length; i++) {
+
+			System.out.print(arr[i] + " ");
+
+		}
+
+	}
+
+
+
+	private static void doQuickSort(int[] arr, int lowerBound, int upperBound) {
+
+		if (lowerBound < upperBound) {
+
+			int pi = partition(arr, lowerBound, upperBound);
+
+			doQuickSort(arr, lowerBound, pi - 1);
+
+			doQuickSort(arr, pi + 1, upperBound);
+
+		}
+
+	}
+
+
+
+	private static int partition(int[] arr, int lowerBound, int upperBound) {
+
+		{
+
+			int pivot = arr[lowerBound];
+
+			int p1 = lowerBound + 1;
+
+			for (int i = lowerBound + 1; i <= upperBound; i++) {
+
+				if (arr[i] < pivot) {
+
+					if (i != p1) {
+
+						int temp = arr[p1];
+
+						arr[p1] = arr[i];
+
+						arr[i] = temp;
+
+					}
+
+					p1++;
+
+				}
+
+			}
+
+			arr[lowerBound] = arr[p1 - 1];
+
+			arr[p1 - 1] = pivot;
+
+			return p1 - 1;
+
+		}
+
+	}
+
+
+
+}

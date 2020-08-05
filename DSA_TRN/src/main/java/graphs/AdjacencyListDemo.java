@@ -1,5 +1,6 @@
 package graphs;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -8,7 +9,8 @@ public class AdjacencyListDemo {
 
     public static void main(String[] args) {
 	AdjacencyList ls = new AdjacencyList(7);
-//    ls.add(0, 1);
+
+	ls.add(0, 1);
 //    ls.add(0, 2);
 //    ls.add(1, 2);
 //    ls.add(2, 3);
@@ -25,16 +27,33 @@ public class AdjacencyListDemo {
 //	ls.disp();
 //	ls.bfs(0);
 
-	ls.add(0, 1);
-	ls.add(0, 3);
-	ls.add(0, 5);
-
-	ls.add(1, 2);
-	ls.add(3, 4);
-	ls.add(5, 6);
+//	ls.add(0, 1);
+//	ls.add(0, 3);
+//	ls.add(0, 5);
+//
+//	ls.add(1, 2);
+//	ls.add(3, 4);
+//	ls.add(5, 6);
 //	ls.dfs(0);
 //	ls.bfs(0);
-	ls.dfsR(0);
+//	ls.dfsR(0);
+
+//	ls.add(0, 1);
+//	ls.add(1, 2);
+//	ls.add(1, 3);
+//	ls.add(2, 3);
+	ls.add(0, 1);
+	ls.add(0, 3);
+	ls.add(1, 3);
+	ls.add(1, 4);
+	ls.add(2, 0);
+	ls.add(2, 5);
+	ls.add(3, 5);
+	ls.add(3, 6);
+	ls.add(4, 6);
+	ls.add(6, 5);
+	ls.shortestPath(0);
+
     }
 }
 
@@ -54,7 +73,7 @@ class AdjacencyList {
 
     public void add(int u, int v) {
 	list[u].add(v);
-	list[v].add(u);
+	// list[v].add(u);
     }
 
     public void remove(Integer u, Integer v) {
@@ -66,6 +85,29 @@ class AdjacencyList {
 	for (int i = 0; i < n; i++) {
 	    System.out.println(i + " : " + list[i]);
 	}
+    }
+
+    public void shortestPath(int source) {
+	int dist[] = new int[n];
+	int path[] = new int[n];
+	for (int i = 0; i < n; i++)
+	    dist[i] = -1;
+	dist[source] = 0;
+	LinkedList<Integer> q = new LinkedList<Integer>();
+	q.add(source);
+	while (!q.isEmpty()) {
+	    int v = q.poll();
+	    for (int w : list[v]) {
+		if (dist[w] == -1) {
+		    dist[w] = dist[v] + 1;
+		    path[w] = v;
+		    q.add(w);
+		}
+	    }
+	}
+
+	System.out.println("Path: " + Arrays.toString(path));
+	System.out.println("Dist: " + Arrays.toString(dist));
     }
 
     public void dfsR(int startNode) {

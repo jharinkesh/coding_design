@@ -22,7 +22,7 @@ public class DijkstraMatrix {
 	s[source] = true;
 
 	for (int i = 0; i < n; i++) {
-	    int u = getMinVertex(s, cost, i);
+	    int u = getMinVertex(s, dist);
 	    if (u != -1) {
 		s[u] = true;
 		for (int w = 0; w < n; w++) {
@@ -39,12 +39,11 @@ public class DijkstraMatrix {
 
     }
 
-    static int getMinVertex(boolean[] s, int[][] cost, int v) {
+    static int getMinVertex(boolean[] s, int[] dist) {
 	int minIndex = -1, minDist = Integer.MAX_VALUE;
 	for (int i = 0; i < s.length; i++) {
-	    int dist = cost[v][i];
-	    if (s[i] == false && dist < minDist) {
-		minDist = dist;
+	    if (!s[i] && dist[i] < minDist) {
+		minDist = dist[i];
 		minIndex = i;
 	    }
 	}

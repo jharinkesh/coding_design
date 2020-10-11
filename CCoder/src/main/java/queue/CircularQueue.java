@@ -37,25 +37,25 @@ class CQ {
     }
 
     void enque(int x) {
-	if (size == cap)
-	    return;
+		if (size >= cap)
+			return;
 
-	if (size == 0) {
-	    front = 0;
-	    a[front] = x;
-	} else {
-	    int rear = (front + size) % cap;
-	    a[rear] = x;
-	}
+		if (size == 0) {
+			front = 0;
+			a[front] = x;
+		} else {
+			int rear = (front + size) % cap;
+			a[rear] = x;
+		}
 
-	size++;
+		size++;
     }
 
     void deque() {
-	if (size == 0)
-	    return;
-	front = (front + 1) % cap;
-	size--;
+		if (size == 0)
+			return;
+		front = (front + 1) % cap;
+		size--;
     }
 
     void disp() {
